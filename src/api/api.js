@@ -8,6 +8,11 @@ export function getChuckCategories() {
     return axios.get(url).then(handleResponse).catch(handleError)
 }
 
+export function getRandomJoke(category) {
+    let url = baseUrl + 'chuck/random?category=' + category
+    return axios.get(url).then(handleResponse).catch(handleError)
+}
+
 export function getPeople(page) {
     let url = baseUrl + 'swapi/people?page=' + page
     return axios.get(url).then(handleResponse).catch(handleError)

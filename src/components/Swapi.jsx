@@ -65,13 +65,7 @@ export default function Swapi(props) {
             onChangePage={handlePageChange}
         />
 
-        {/* {isLoading && <div>Please wait...</div>}
 
-        {!isLoading && <ul>
-            {categories.map(category => (
-                <h5>{category}</h5>
-            ))}
-        </ul>} */}
 
 
 
