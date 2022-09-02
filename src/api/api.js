@@ -17,3 +17,8 @@ export function getPeople(page) {
     let url = baseUrl + 'swapi/people?page=' + page
     return axios.get(url).then(handleResponse).catch(handleError)
 }
+
+export function search(query, page) {
+    let url = baseUrl + `search?query=${query}&page=${page}`
+    return axios.get(url).then(handleResponse).catch(handleError)
+}

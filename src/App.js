@@ -5,6 +5,7 @@ import Header from './components/common/Header';
 import HomePage from './components/HomePage';
 import Chuck from './components/Chuck';
 import Swapi from './components/Swapi';
+import Search from './components/Search';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/chuck' element={<Chuck />} />
         <Route path='/swapi' element={<Swapi />} />
+        <Route path='/search' element={<Search />} />
       </Routes>
 
 

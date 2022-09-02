@@ -16,6 +16,10 @@ const Header = () => {
             <NavLink to="/swapi" activeStyle={activeStyle}>
                 Swapi People
             </NavLink>
+            {" | "}
+            <NavLink to="/search" activeStyle={activeStyle}>
+                Search
+            </NavLink>
         </nav>
     );
 };
