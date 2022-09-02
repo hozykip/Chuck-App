@@ -1,24 +1,26 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom"
 
 const Header = () => {
-    const activeStyle = { color: "#F15B2A" };
+    const activeStyle = { backgroundColor: "#F15B2A" };
+
     return (
-        <nav>
+        <nav className="swapi-header">
             <NavLink to="/" activeStyle={activeStyle} exact>
-                Home
+                <Button variant="outlined">Home</Button>
             </NavLink>
-            {" | "}
+
             <NavLink to="/chuck" activeStyle={activeStyle}>
-                Chuck Categories
+                <Button variant="outlined">Chuck Norris Categories</Button>
             </NavLink>
-            {" | "}
+
             <NavLink to="/swapi" activeStyle={activeStyle}>
-                Swapi People
+                <Button variant="outlined">Swapi People</Button>
             </NavLink>
-            {" | "}
+
             <NavLink to="/search" activeStyle={activeStyle}>
-                Search
+                <Button variant="outlined">Search</Button>
             </NavLink>
         </nav>
     );

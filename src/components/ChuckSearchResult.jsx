@@ -13,9 +13,12 @@ const columns = [
 ];
 
 
-export default function ChuckSearchResult({ chucks, search, ...props }) {
+export default function ChuckSearchResult({ chucks, search, isLoading, ...props }) {
     return <React.Fragment>
-        {search && <DataTable
+
+        {isLoading && <p>Please wait...</p>}
+
+        {search && !isLoading && <DataTable
             columns={columns}
             data={chucks}
             title={`Chuck Norris search results for term '${search}'`}

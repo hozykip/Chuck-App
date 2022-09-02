@@ -6,10 +6,11 @@ import HomePage from './components/HomePage';
 import Chuck from './components/Chuck';
 import Swapi from './components/Swapi';
 import Search from './components/Search';
+import { Container } from '@mui/system';
 
 function App() {
   return (
-    <div className='wrapper'>
+    <Container>
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
@@ -17,9 +18,8 @@ function App() {
         <Route path='/swapi' element={<Swapi />} />
         <Route path='/search' element={<Search />} />
       </Routes>
+    </Container>
 
-
-    </div>
   );
 }
 

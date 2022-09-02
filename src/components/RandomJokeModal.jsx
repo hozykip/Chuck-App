@@ -52,9 +52,10 @@ export default function RandomJokeModal({ handleClose, category, ...props }) {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Random joke for category {category}
+                        Random joke for category '{category}'
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        {randomJoke == null ? <p>Fetching random joke...</p> : <></>}
                         {randomJoke && <>{randomJoke.value}</>}
                     </Typography>
                 </Box>

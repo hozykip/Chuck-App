@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 
 import { search as apiSearch } from "../api/api";
 import ChuckSearchResult from "./ChuckSearchResult";
@@ -69,19 +69,29 @@ export default function Search() {
         <br /><br />
         <Button variant="outlined" disabled={query == null || searching} onClick={handleSearchButtonClicked}>Search</Button>
 
+        <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
+            <Box gridColumn="span 12"></Box>
 
-        <div>
+            <Box gridColumn="span 6">
+                <ChuckSearchResult className="chucks" isLoading={searching} chucks={chuckResult} search={query} />
+            </Box>
+            <Box gridColumn="span 6">
+                <SwapiSearchResult
+                    className="swapi"
+                    search={query}
+                    isLoading={searching}
+                    people={swapiResult}
+                    totalRows={totalRows}
+                    handlePageChange={handlePageChange} />
+            </Box>
+        </Box>
 
-            <ChuckSearchResult chucks={chuckResult} search={query} />
+        <div className="SearchPage">
 
-            <br /><br />
 
-            <SwapiSearchResult
-                search={query}
-                isLoading={searching}
-                people={swapiResult}
-                totalRows={totalRows}
-                handlePageChange={handlePageChange} />
+
+
+
 
         </div>
 

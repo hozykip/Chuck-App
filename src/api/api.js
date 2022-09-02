@@ -5,6 +5,7 @@ const baseUrl = 'http://127.0.0.1:6143/api/'
 
 export function getChuckCategories() {
     let url = baseUrl + 'chuck/categories'
+    console.log('getChuckCategories')
     return axios.get(url).then(handleResponse).catch(handleError)
 }
 

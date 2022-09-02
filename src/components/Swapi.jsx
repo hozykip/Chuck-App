@@ -16,7 +16,7 @@ const columns = [
 export default function Swapi(props) {
 
     const [people, setPeople] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [totalRows, setTotalRows] = useState(0);
     // const [perPage, setPerPage] = useState(10);
 
@@ -32,14 +32,17 @@ export default function Swapi(props) {
     }, [isLoading])
 
     const fetchPeople = async page => {
-        var response = await getPeople(page);
-        setIsLoading(true)
-        if (response.status == 1) {
-            setPeople(response.data.items)
-            setTotalRows(response.data.totalItems);
+        try {
+            var response = await getPeople(page);
+            if (response.status == 1) {
+                setPeople(response.data.items)
+                setTotalRows(response.data.totalItems);
+            }
+            setIsLoading(false)
+        } catch (err) {
+            setIsLoading(false)
+            alert(`Error fetching people: ${err.message}`)
         }
-
-        setIsLoading(false)
     }
 
     const handlePageChange = page => {
@@ -52,9 +55,8 @@ export default function Swapi(props) {
 
     return <div>
         <h3>Swapi People</h3>
-
         <DataTable
-            title="People"
+            title="Star Wars People"
             columns={columns}
             data={people}
             progressPending={isLoading}
@@ -64,10 +66,5 @@ export default function Swapi(props) {
             paginationTotalRows={totalRows}
             onChangePage={handlePageChange}
         />
-
-
-
-
-
     </div>
 }

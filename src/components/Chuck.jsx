@@ -26,11 +26,11 @@ export default function Chuck(props) {
             const fetchCategories = async () => {
                 var response = await getChuckCategories();
                 setIsLoading(false)
+
                 if (response.status == 1) {
                     setCategories(response.data)
                 }
             }
-
             fetchCategories()
         } catch (err) {
             alert('Error fetching categories: ' + err.message)
@@ -50,7 +50,8 @@ export default function Chuck(props) {
     const handleCloseModal = () => setRandomCategory(null)
 
     return <div>
-        <h3>Chuck categories</h3>
+        <h3>Chuck Norris categories</h3>
+        <p>Once loaded click on the icon next to each item to see a random joke in the category</p>
 
         {isLoading && <div>Please wait...</div>}
 
