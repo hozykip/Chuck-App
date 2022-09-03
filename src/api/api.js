@@ -1,7 +1,7 @@
 import axios from "axios"
 import { handleError, handleResponse } from "./apiUtils"
 
-const baseUrl = 'http://127.0.0.1:6143/api/'
+const baseUrl = process.env.REACT_APP_BASE_API;
 
 export function getChuckCategories() {
     let url = baseUrl + 'chuck/categories'
